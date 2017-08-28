@@ -1,0 +1,5 @@
+<h3>Bed</h3>
+<%= select :new_bed, :bed_id, options_for_select(@available_beds.map {|p| [p.bed_number,p.id]}) %>
+<%#= text_field :get_appointment, :docter_id  %>
+<br/> <br/>
+<%= submit_tag "Assign", :class => "submitBtn" %><br/><br/>

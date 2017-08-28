@@ -1,0 +1,29 @@
+<h3>Patients</h3>
+<%= link_to "Add Patient" , new_admin_patient_path(@user) %>
+<br/>
+<%= flash[:notice] %>
+<br/>
+<table border="1">
+   <tr>
+   <th>Name</th>
+   <th>Age</th>
+   <th>Phone_num</th>
+   <th>Username</th>
+
+   <th>Action</th>
+   </tr>
+ <% @patient.each do |patient| %>
+ <tr>
+   <td><%=link_to patient.name , admin_patient_path(@user,patient) %></td>
+   <td><%=h patient.age %></td>
+   <td><%=h patient.phone_no %></td>
+   <td><%=h patient.username %></td>
+   <td><%= link_to 'Edit', edit_admin_patient_path(@user,patient) %> | <%= link_to 'Delete', patient, :confirm => 'Are you sure want to delete?',
+                           :method => :delete %></td>
+   </tr>
+   <% end %>
+ </table>
+<br/>
+<br/>
+<%=link_to "Back" , admins_path , :style => "color: white; background: #000; border-width: thick; border-radius: 5px; padding: 5px; font-family: monospace;"%>
+

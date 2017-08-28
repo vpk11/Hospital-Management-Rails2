@@ -1,0 +1,27 @@
+<center>
+<h3>Edit Doctor<h3>
+  <div>
+      <% form_for @doctor, edit_admin_doctor_path(@user,@doctor), :html => { :multipart => true } do |f| %>
+        <%= f.error_messages %>
+        <br/>
+        <br/>
+        <%= f.file_field :avatar %>
+        <br/>
+        <br/>
+        <%= f.text_field :name , :required => true, :placeholder => "Name" %>
+        <br/>
+        <br/>
+        <%= f.text_field :age , :required => true, :placeholder => "Age" %>
+        <br/>
+        <br/>
+        <%= f.text_field :phone_no , :required => true, :placeholder => "Phone Number" %>
+        <br/>
+        <br/>
+        <%= f.submit "Confirm" , :class => "submitBtn" %>
+
+      <% end %>
+
+
+    </div>
+
+</center>

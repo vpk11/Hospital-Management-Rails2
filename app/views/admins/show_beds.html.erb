@@ -1,0 +1,20 @@
+<h3>Beds</h3>
+
+<br/>
+<%= flash[:notice] %>
+<br/>
+<table border="1">
+  <tr>
+    <th>Bed number</th>
+    <th>Ward</th>
+    <th>Delete</th>
+  </tr>
+<% @bed.each do |bed| %>
+<tr>
+  <td><%=h bed.bed_number %>
+  <td><%=h bed.ward_id %>
+  <td><%= link_to 'Delete', destroy_bed_admin_path(bed), :confirm => 'Are you sure want to delete?',
+                :method => :post %></td>
+</tr>
+<% end %>
+</table>

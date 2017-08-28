@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  bed_space: 1
+
+two:
+  name: MyString
+  bed_space: 1

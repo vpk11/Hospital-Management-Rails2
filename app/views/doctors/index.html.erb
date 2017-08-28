@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doctor</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<%= stylesheet_link_tag "index_style.css" %>
+
+<style>
+
+</style>
+
+</head>
+<body class="body_margin">
+
+  <!--<h2 style="text-align:center">Welcome</h2>-->
+  <%#= link_to "LogOut" , logout_users_path , :style=> "float: right; margin-right: 252px;"%>
+
+  <div class="card">
+    <%= image_tag @doctor.avatar.url(:thumb) %>
+    <div class="container" style="padding-bottom: 30px;">
+      <h1><%= link_to  @doctor.name, doctor_path(@doctor) %></h1>
+      <p>Department : <%= @doctor.department.name %></p>
+      <p><%= @doctor.phone_no %></p>
+
+      <h3>Appointments</h3>
+      
+      <table border="1">
+        <tr>
+          <th>Patient</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          
+        </tr>
+        <% @appointments.each do |appointment| %>
+         <tr>
+             <td><%=h appointment.patient.name %></td>
+             <td><%=h appointment.start_time.strftime('%I:%M %p  %d %b %Y') %></td>
+             <td><%=h appointment.end_time.strftime('%I:%M %p  %d %b %Y') %></td>
+         </tr>
+        <% end %>
+        </table>
+        
+
+
+    </div>
+  </div>
+
+
+</body>
+</html>

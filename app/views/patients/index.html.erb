@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Patient</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<%= stylesheet_link_tag "index_style.css" %>
+
+<style>
+
+</style>
+
+</head>
+<body class="body_margin">
+
+  
+  <div class="card">
+    <%= image_tag @patient.avatar.url(:thumb) %>
+    <div class="container" style="padding-bottom: 30px;">
+      <h1><%= link_to @patient.name, patient_path(@patient) %></h1>
+      <p>Age : <%= @patient.age %></p>
+      <!-- <p><%= @patient.phone_no %></p> -->
+
+      <%= link_to "New Appointment" , get_appointments_patients_path , {:style => 'font-size: 15px; color: #004D40;'}%>
+      <br/><br/>
+      <%=flash[:notice]%>
+      
+      <table border="1">
+        <tr>
+          <th>Doctor</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          
+        </tr>
+        <% @appointments.each do |appointment| %>
+         <tr>
+          <td><%=h appointment.doctor.name %>
+          <td><%=h appointment.start_time.strftime('%I:%M %p  %d %b %Y') %>
+          <td><%=h appointment.end_time.strftime('%I:%M %p  %d %b %Y') %>
+         </tr>
+        <% end %>
+        </table>
+
+
+
+    </div>
+  </div>
+
+
+</body>
+</html>

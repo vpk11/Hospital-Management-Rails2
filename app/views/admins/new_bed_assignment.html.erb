@@ -1,0 +1,50 @@
+
+<%=flash[:notice]%>
+<% form_for :new_bed, :url => {:action=>'create_bed_assignment'}  do |f| %>
+<h3>Select Patient<h3>
+<%= f.select :patient_id, options_for_select(@patient.map{|p| [p.name,p.id]}) %>
+<br/>
+<br/>
+
+  <h3>Start date and time</h3>
+  <%= f.datetime_select :start_time, :start_year => 2017 %><br/><br/>
+   <h3>End date and time</h3>
+   <%= f.datetime_select :end_time, :start_year => 2017%><br><br/>
+   <h3>Ward</h3>
+    <%= select :assignment, :ward_id, options_for_select(@ward.map{|b| [b.name,b.id]}), {:include_blank=>"Ward",:selected=>@ward.try(:id).to_i},
+            {:onChange => "list_beds()"} %><br/>
+    <div id="available_beds">
+       
+   </div>
+    <br/><br/><br/>
+<% end %>
+
+<%=link_to "Back" , admins_path , :style => "color: white; background: #000; border-width: thick; border-radius: 5px; padding: 5px; font-family: monospace;"%>
+    
+    
+ <script>
+ var j = jQuery.noConflict()
+ function list_beds(){
+  
+    
+  j.ajax({
+           type: 'get',
+           url: "/admins/list_beds",
+           data: {
+               ward_id: j('#assignment_ward_id').val(),
+               start_time_1i: j('#new_bed_start_time_1i').val(),
+               start_time_2i: j('#new_bed_start_time_2i').val(),
+               start_time_3i: j('#new_bed_start_time_3i').val(),
+               start_time_4i: j('#new_bed_start_time_4i').val(),
+               start_time_5i: j('#new_bed_start_time_5i').val(),
+               end_time_1i: j('#new_bed_end_time_1i').val(),
+               end_time_2i: j('#new_bed_end_time_2i').val(),
+               end_time_3i: j('#new_bed_end_time_3i').val(),
+               end_time_4i: j('#new_bed_end_time_4i').val(),
+               end_time_5i: j('#new_bed_end_time_5i').val()
+           },
+           //success: function(data){}
+          
+       })
+  }
+ </script>

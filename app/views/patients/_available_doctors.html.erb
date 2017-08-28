@@ -1,0 +1,5 @@
+<h3>Select Doctor</h3>
+<%= select :get_appointment, :doctor_id, options_for_select(@available_doctors.map {|p| [p.name,p.id]}) %>
+<%#= text_field :get_appointment, :docter_id  %>
+<br/> <br/>
+<%= submit_tag "Book", :class => "submitBtn" %><br/><br/>

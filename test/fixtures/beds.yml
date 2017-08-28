@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  bed_number: MyString
+  ward: 
+
+two:
+  bed_number: MyString
+  ward: 

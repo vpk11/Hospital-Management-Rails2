@@ -1,0 +1,14 @@
+
+    <%=flash[:notice]%>
+    <ul>
+      <li><%= link_to "Doctors" , show_doctors_admins_path %></li>
+      <li><%= link_to "Patients" , show_patients_admins_path %></li>
+      <li><%=link_to "Admit Patient" , new_bed_assignment_admins_path %></li>
+      <li><%=link_to "Manage Bed Assignments" , manage_bed_assignments_admins_path %></li>
+      <li><%=link_to "Manage Appointments" , manage_appointments_admins_path %></li>
+      <li><%=link_to "Wards" , show_wards_admins_path %></li>
+      <li><%= link_to "Departments" ,  show_departments_admins_path %></li>
+      <li><%= link_to "Add Beds" , new_bed_admins_path %></li>
+      
+      
+    </ul>

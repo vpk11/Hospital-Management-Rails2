@@ -1,0 +1,49 @@
+
+
+
+<% form_for :get_appointment, :url => {:action=>'create_appointment'}  do |f| %>
+<h2>Book Appointment<h2>
+
+
+  <h3>Start date and time </h3>
+  <%= f.datetime_select :start_time, :start_year => 2017, :name=>"stat"  %><br/><br/>
+   <h3>End date and time </h3>
+   <%= f.datetime_select :end_time, :start_year => 2017%>
+   <h3>Select Department</h3>
+   <%= select :appointment, :department_id, options_for_select(@department.map {|d| [d.name,d.id]}), {:include_blank=>"Department",:selected=>@department.try(:id).to_i},
+            {:onChange => "list_doctors()"} %>
+   
+   <div id="available_doctors">
+      <%#= render :partial=>'available_doctors'%> 
+   </div>
+
+
+<% end %>
+
+
+<script>
+  var j = jQuery.noConflict()
+function list_doctors(){
+  
+    
+  j.ajax({
+           type: 'get',
+           url: "/patients/list_doctors",
+           data: {
+               department_id: j('#appointment_department_id').val(),
+               start_time_1i: j('#get_appointment_start_time_1i').val(),
+               start_time_2i: j('#get_appointment_start_time_2i').val(),
+               start_time_3i: j('#get_appointment_start_time_3i').val(),
+               start_time_4i: j('#get_appointment_start_time_4i').val(),
+               start_time_5i: j('#get_appointment_start_time_5i').val(),
+               end_time_1i: j('#get_appointment_end_time_1i').val(),
+               end_time_2i: j('#get_appointment_end_time_2i').val(),
+               end_time_3i: j('#get_appointment_end_time_3i').val(),
+               end_time_4i: j('#get_appointment_end_time_4i').val(),
+               end_time_5i: j('#get_appointment_end_time_5i').val()
+           },
+           //success: function(data){}
+          
+       })
+  }
+</script>

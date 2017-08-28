@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag "admin_index.css" %>
+  <%= stylesheet_link_tag "admin.css" %>
+  <%= javascript_include_tag :all %>
+    <%#*<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>%>
+  <%#*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>%>
+
+
+    
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+  <title>Welcome</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body style="margin:auto;width:70%">
+  <center><h1 style="font-family: 'Roboto Slab', serif;">Welcome</h1></center>
+  <div class="logout">
+    <%= link_to "LogOut" , logout_users_path %>
+  </div>
+  <%= yield %>
+
+</body>
+</html>

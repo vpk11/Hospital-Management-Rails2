@@ -1,0 +1,20 @@
+<h3>Departments</h3>
+<%= link_to "Add Department" ,  new_department_admins_path %>
+<br/>
+<%= flash[:notice] %>
+<br/>
+<table border="1">
+  <tr>
+    <th>Name</th>
+  </tr>
+<% @department.each do |department| %>
+<tr>
+  <td><%=department.name%></td>
+</tr>
+<% end %>
+</table>
+
+<br/>
+<br/>
+<%=link_to "Back" , admins_path , :style => "color: white; background: #000; border-width: thick; border-radius: 5px; padding: 5px; font-family: monospace;"%>
+

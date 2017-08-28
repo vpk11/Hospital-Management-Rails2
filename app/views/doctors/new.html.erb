@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%= stylesheet_link_tag "user_index.css" %>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<center>
+<div>
+<% form_for 'doctor_signup', :url => doctors_path, :html => { :multipart => true } do |f|%>
+  <%= f.error_messages %>
+    <strong>Add Doctor</strong>
+    <br/>
+    <br/>
+    <br/>
+    <%= f.file_field :avatar %>
+    <br/>
+    <br/>
+    <%= f.text_field :name , :required => true, :placeholder => "Name" %>
+    <br/>
+    <br/>
+    <%= f.text_field :age , :required => true, :placeholder => "Age" %>
+    <br/>
+    <br/>
+    <%= f.text_field :phone_no , :required => true, :placeholder => "Phone Number" %>
+    <br/>
+    <br/>
+    <%= f.text_field :username , :required => true, :placeholder => "Username" %>
+    <br/>
+    <br/>
+    <%= f.password_field :password , :required => true , :placeholder => "Password" %>
+    <br/>
+    <br/>
+    <%= f.select :department_id, options_for_select(@departments.map{|b| [b.name,b.id]}), {:include_blank=>"Department",:selected=>@departments.try(:id).to_i} %>
+    <br/>
+    <br/>
+    <%= f.submit "SignUp" , :class => "submitBtn" %>
+
+<% end %>
+
+
+</div>
+    </center>
+
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<h3>Wards</h3>
+<%= link_to "Add Wards" ,  new_ward_admins_path %>
+<br/>
+<%= flash[:notice] %>
+<br/>
+<table border="1">
+  <tr>
+
+    <th>Name</th>
+    <th>Bed Space</th>
+    <th>Action</th>
+  </tr>
+<% @ward.each do |ward| %>
+<tr>
+  <td><%=link_to ward.name , show_beds_admin_path(ward.id)%></td>
+  <td><%=h ward.bed_space %></td>
+  <td><%= link_to 'Delete', destroy_ward_admin_path(ward), :confirm => 'Are you sure want to delete?',
+                :method => :post %></td>
+</tr>
+<% end %>
+</table>
+
+<br/>
+<br/>
+<%=link_to "Back" , admins_path , :style => "color: white; background: #000; border-width: thick; border-radius: 5px; padding: 5px; font-family: monospace;"%>
+

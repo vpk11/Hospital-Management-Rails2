@@ -1,0 +1,13 @@
+a {
+    color: #004D40;
+    text-decoration: none;
+    font-family: 'Roboto Slab', serif;
+}
+
+li{
+  margin-bottom: 10px;
+    font-size: 20px;
+}
+.logout{
+  float: right;
+}

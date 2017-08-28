@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%= stylesheet_link_tag "user_index.css" %>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<center>
+<div>
+<% form_for 'new_department_form', :url => create_department_admins_path do |f|%>
+  <%= f.error_messages %>
+    <strong>New Department</strong>
+    <br/>
+    <br/>
+    <br/>
+    <%= f.text_field :name , :required => true, :placeholder => "Department Name" %>
+    <br/>
+    <br/>
+
+    <%= f.submit "ADD" , :class => "submitBtn" %>
+
+<% end %>
+
+
+</div>
+    </center>
+
+
+</body>
+</html>

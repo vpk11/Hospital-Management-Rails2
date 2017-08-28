@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%= stylesheet_link_tag "user_index.css" %>
+<title>Log IN</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<center>
+<div>
+<% form_for 'user_login', :url => login_users_path do |f|%>
+  <%= f.error_messages %>
+    <h3>LOG IN</h3>
+    <br/>
+   
+    <%= f.text_field :username , :required => true, :placeholder => "Username" %>
+    <br/>
+    <br/>
+    <%= f.password_field :password , :required => true , :placeholder => "Password" %>
+    <br/>
+    <br/>
+    <%= f.submit "Login" , :class => "submitBtn" %>
+
+<% end %>
+
+
+
+
+</div>
+    </center>
+
+
+</body>
+</html>

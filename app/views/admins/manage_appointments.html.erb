@@ -1,0 +1,27 @@
+<h3>Appointments</h3>
+<br/>
+<%= flash[:notice] %>
+<br/>
+<table border="1">
+   <tr>
+   <th>Doctor Name</th>
+   <th>Patient Name</th>
+   <th>Start Time</th>
+   <th>End Time</th>
+
+   <th>Action</th>
+   </tr>
+ <% @appointments.each do |appointment| %>
+ <tr>
+   <td><%=link_to appointment.doctor.name , admin_doctor_path(@user,appointment.doctor) %></td>
+   <td><%=link_to appointment.patient.name , admin_patient_path(@user,appointment.patient) %></td>
+   <td><%=h appointment.start_time.strftime('%I:%M %p  %d %b %Y') %></td>
+   <td><%=h appointment.end_time.strftime('%I:%M %p  %d %b %Y') %></td>
+   <td><%= link_to 'Delete', destroy_appointment_admin_path(appointment), :confirm => 'Are you sure want to delete?',
+                           :method => :post %></td>
+   </tr>
+   <% end %>
+ </table>
+<br/>
+<br/>
+ <%=link_to "Back" , admins_path , :style => "color: white; background: #000; border-width: thick; border-radius: 5px; padding: 5px; font-family: monospace;"%>

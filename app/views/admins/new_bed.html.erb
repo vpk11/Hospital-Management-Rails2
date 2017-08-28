@@ -1,0 +1,32 @@
+
+
+
+<div>
+<% form_for 'new_bed_form', :url => create_bed_admins_path do |f|%>
+  <%= f.error_messages %>
+    <h2>New Bed</h2>
+    <%=flash[:notice]%>
+    <br/>
+    
+    
+    <%= f.text_field :bed_number , :required => true, :placeholder => "Bed Number", :style=>"width:12%;" %>
+    
+    <br/>
+    <h3>Ward</h3>
+    <%= f.select :ward_id, options_for_select(@ward.map{|p| [p.name,p.id]}) %>
+    <br/>
+    <br/>
+
+    <%= f.submit "Add Bed" , :class => "submitBtn",:style=>"width:12%;" %>
+
+<% end %>
+    <br/>
+    <br/>
+    <br/>
+    <%=link_to "Back" , admins_path , :style => "color: white; background: #000; border-width: thick; border-radius: 5px; padding: 5px; font-family: monospace;"%>
+
+
+</div>
+
+
+

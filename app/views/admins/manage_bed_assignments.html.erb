@@ -1,0 +1,30 @@
+<h3>Bed Assignment</h3>
+<br/>
+<%= flash[:notice] %>
+<br/>
+<table border="1">
+   <tr>
+   <th>Patient Name</th>
+   <th>Ward</th>
+   <th>Bed</th>
+   <th>Start Time</th>
+   <th>End Time</th>
+
+   <th>Action</th>
+   </tr>
+ <% @bed_assignments.each do |bed_assignment| %>
+ <tr>
+   <td><%=link_to bed_assignment.patient.name , admin_patient_path(@user,bed_assignment.patient) %></td>
+   <td><%=h bed_assignment.bed.ward.name%></td>
+   <td><%=h bed_assignment.bed.bed_number %></td>
+   <td><%=h bed_assignment.start_time.strftime('%I:%M %p  %d %b %Y') %></td>
+   <td><%=h bed_assignment.end_time.strftime('%I:%M %p  %d %b %Y') %></td>
+   <td><%= link_to 'Delete', destroy_bed_assignment_admin_path(bed_assignment), :confirm => 'Are you sure want to delete?',
+                           :method => :post %></td>
+   </tr>
+   <% end %>
+ </table>
+<br/>
+<br/>
+ <%=link_to "Back" , admins_path , :style => "color: white; background: #000; border-width: thick; border-radius: 5px; padding: 5px; font-family: monospace;"%>
+

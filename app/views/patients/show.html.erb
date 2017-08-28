@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient Profile</title>
+<%= stylesheet_link_tag "profile_style.css" %>
+<%= stylesheet_link_tag "admin_index.css" %>
+
+<style>
+
+</style>
+
+</head>
+<body class="body_margin">
+    
+
+  <h2 style="text-align:center">Patient Profile</h2>
+  <%= link_to "LogOut" , logout_users_path , :style=> "float: right; margin-right: 252px;"%>
+  <div class="card">
+    <%= image_tag @patient.avatar.url(:thumb) %>
+    <div class="container">
+      <h1><%= @patient.name %></h1>
+      <p>Age : <%= @patient.age %></p>
+      <p><%= @patient.phone_no %></p>
+
+        
+    </div>
+    <br/>
+
+  </div>
+
+
+</body>
+</html>
